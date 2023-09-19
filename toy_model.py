@@ -8,7 +8,7 @@ from tensorflow.keras import layers, models
 # True function
 start = 0.0
 stop = 4.0
-N = 200000
+N = 2000
 t = np.linspace(start,stop,N)
 y = np.exp(t)
 delta = t[1] - t[0]
@@ -42,6 +42,9 @@ def der(x):
   for i in range(len(x)-2):
     der1[i+1] = (x[i+2] - x[i]) / (2 * delta)
   return der1
+
+# From the plots, der() seems to behave weirdly... It should have far less constant values in my opinion... 
+# Since I use exp... Unless the exp function seems very linear to the der() operator???
 
 # First derivative of the data at given datapoints
 y_1 = der(y_pred)
