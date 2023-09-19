@@ -46,6 +46,10 @@ def der(x):
 # From the plots, der() seems to behave weirdly... It should have far less constant values in my opinion... 
 # Since I use exp... Unless the exp function seems very linear to the der() operator???
 # OR ! RELU being partially linear, the differentialtion yields piecewise constant derivatives!!!! Try a more smooth activation function like tanh!
+# TRIED: RELU -> TANH has huge impact!!! Choice of activation function is very important. 
+# Q: How does the universal approx Thm (on which ML is based) behave with respect to differentiation? 
+# Do the derivatives of the approximating function also converge towards the derivative of the true function?
+
 
 # First derivative of the data at given datapoints
 y_1 = der(y_pred)
