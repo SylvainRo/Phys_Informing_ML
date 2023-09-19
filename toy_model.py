@@ -73,8 +73,11 @@ for i in range(len(t)):
 
 
 print(Null[1:-1,0].mean() + Null[1:-1,1].mean())
+# Ideally we obtain 0.0
 
 coef = np.array([Null[1:-1,0].mean(),Null[1:-1,1].mean()]) * (1/Null[1:-1,1].mean())
+# Real (analytic) answer is the vector [-1,1] since the differential equation satisfied is
+# -1 * f(y) + 1 * d/dy f(y) = 0  
 
 print(coef)
 
