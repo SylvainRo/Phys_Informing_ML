@@ -50,7 +50,6 @@ def der(x):
 # Q: How does the universal approx Thm (on which ML is based) behave with respect to differentiation? 
 # Do the derivatives of the approximating function also converge towards the derivative of the true function?
 
-
 # First derivative of the data at given datapoints
 y_1 = der(y_pred)
 
