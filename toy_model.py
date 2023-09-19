@@ -83,9 +83,15 @@ def ode_first(y, t):
     return dydt
 
 
-y0 = y[0] #y_data[0] # what if the first datapoint is an offlier??? maybe I need a better method... e.g. use y[0]?
-                     # yes... just replaced y_data[0] by y[0]: there is the issue of the dependence on initial values... but since I have many data points, I have many initial
-                     # values at different times, so I might still be able to average different solutions of different init val and get something correct.
+y0 = y[0] 
+
+#y_data[0] 
+# what if the first datapoint is an offlier??? maybe I need a better method... e.g. use y[0]?
+# yes... just replaced y_data[0] by y[0]: there is the issue of the dependence on initial values... but since I have many data points, I have many initial
+# values at different times, so I might still be able to average different solutions of different init val and get something correct.
+# ISSUE ODE Int: takes initial value as [0] and evolves from then, hence evolve both forward and backward in time at different data points and average solutions. 
+# This should solve the dependence on init cond. (Should do a statistical analysis of the expecation values) 
+
 sol = odeint(ode_first, y0, t)
 
 plt.figure(figsize=(10, 6))
