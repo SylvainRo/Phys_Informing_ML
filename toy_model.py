@@ -73,3 +73,25 @@ print(Null[1:-1,0].mean() + Null[1:-1,1].mean())
 coef = np.array([Null[1:-1,0].mean(),Null[1:-1,1].mean()]) * (1/Null[1:-1,1].mean())
 
 print(coef)
+
+# Make ODE Solver with the coef above and then compare to exact solution
+# Doesn't work, but something like that
+from scipy.integrate import odeint
+
+def ode_first(y, t):
+    dydt = -coef[0]*y
+    return dydt
+
+
+y0 = y[0] #y_data[0] # what if the first datapoint is an offlier??? maybe I need a better method... e.g. use y[0]?
+                     # yes... just replaced y_data[0] by y[0]: there is the issue of the dependence on initial values... but since I have many data points, I have many initial
+                     # values at different times, so I might still be able to average different solutions of different init val and get something correct.
+sol = odeint(ode_first, y0, t)
+
+plt.figure(figsize=(10, 6))
+plt.plot(t, y_data, 'g', label='Data')
+plt.plot(t, sol[:, 0], 'b', label='ODE Pred')
+plt.legend(loc='best')
+plt.xlabel('Time (t)')
+plt.legend()
+plt.show()
