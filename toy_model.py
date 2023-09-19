@@ -45,6 +45,7 @@ def der(x):
 
 # From the plots, der() seems to behave weirdly... It should have far less constant values in my opinion... 
 # Since I use exp... Unless the exp function seems very linear to the der() operator???
+# OR ! RELU being partially linear, the differentialtion yields piecewise constant derivatives!!!! Try a more smooth activation function like tanh!
 
 # First derivative of the data at given datapoints
 y_1 = der(y_pred)
