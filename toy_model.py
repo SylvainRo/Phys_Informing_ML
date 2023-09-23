@@ -7,7 +7,7 @@ from tensorflow.keras import layers, models
 
 # True function
 start = 0.0
-stop = 4.0
+stop = 5.0
 N = 2000
 t = np.linspace(start,stop,N)
 y = np.exp(t)
